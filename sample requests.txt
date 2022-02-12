@@ -1,0 +1,34 @@
+1. Create new reservation:
+
+curl --location --request POST 'http://localhost:8080/reservations' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "dateFrom": "2022-09-01",
+    "dateTo": "2022-09-08",
+    "tenantName": "Ewa Nowak",
+    "apartmentId": "1"
+}'
+
+
+2. Update reservation:
+
+curl --location --request PUT 'http://localhost:8080/reservations' \
+--header 'Content-Type: application/json' \
+--data-raw '
+{
+    "dateFrom": "2022-09-01",
+    "dateTo": "2022-09-05",
+    "tenantName": "Ewa Nowak",
+    "apartmentId": "1",
+    "id": "4"
+}'
+
+3. Get reservations for tenant:
+
+curl --location --request GET 'http://localhost:8080/reservations?tenant=Ewa%20Nowak' \
+--data-raw ''
+
+4. Get reservations for apartment:
+
+curl --location --request GET 'http://localhost:8080/reservations?apartment=1' \
+--data-raw ''
